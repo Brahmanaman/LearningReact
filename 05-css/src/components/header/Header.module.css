@@ -1,0 +1,18 @@
+.header {
+    background-color: seagreen;
+    padding: 10px 20px;
+    font-size: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    width: fit-content;
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 25px;
+}

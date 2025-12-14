@@ -1,0 +1,1 @@
+A controlled component relies on React's state as the "single source of truth,"
