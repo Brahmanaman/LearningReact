@@ -1,5 +1,5 @@
 import Footer from "./components/footer/Footer";
-import Header from "./components/navbar/header";
+import Header from "./components/navbar/Header";
 import NavBar from "./components/navbar/NavBar";
 import OurProducts from "./components/products/OurProducts";
 import Products from "./components/products/Products";
@@ -14,10 +14,10 @@ const App = () => {
         <Header />
         <Feature />
         <FeatureCard />
-        <OurProducts/>
-        <Products/>
+        <OurProducts />
+        <Products />
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 };
