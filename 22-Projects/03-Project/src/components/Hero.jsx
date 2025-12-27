@@ -1,6 +1,7 @@
 import { MdOutlineMessage } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import Button from "./Button";
+import banner from "../../public/images/banner.svg";
 
 const Hero = () => {
   return (
@@ -12,47 +13,57 @@ const Hero = () => {
         REACH OUT TO US THROUGH THE CONTACT FORM OF THIS PAGE, OR BY PHONE,
         EMAIL, OR SOCIAL MEDIA.{" "}
       </p>
-      <div className="flex items-center gap-5 flex-col mt-10 ps-3 w-120 ">
-        <div className="flex items-center gap-5 w-full">
-          <Button text="via support chat" logo={<MdOutlineMessage />} />
-          <Button text="via call" logo={<IoCall />} />
+      <div className="flex flex-row gap-10">
+        <div className="flex items-center gap-5 mt-10  flex-col ps-3 w-120 ">
+          <div className="flex items-center gap-5 w-full">
+            <Button text="via support chat" logo={<MdOutlineMessage />} />
+            <Button text="via call" logo={<IoCall />} />
+          </div>
+          <Button
+            text="via email form"
+            isEmail="true"
+            logo={<MdOutlineMessage />}
+          />
+          <form className="w-full px-5 flex flex-col gap-5 mt-5">
+            <div className="flex flex-col">
+              <label className="absolute bg-white -mt-2.5 ms-2.5" htmlFor="">
+                Name
+              </label>
+              <input
+                type="text"
+                className="border  p-2 rounded-xs border-gray-400 outline-0"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label className="absolute bg-white -mt-2.5 ms-2.5" htmlFor="">
+                E-Mail
+              </label>
+              <input
+                type="text"
+                className="border  p-2 rounded-xs border-gray-400 outline-0"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label className="absolute bg-white -mt-2.5 ms-2.5" htmlFor="">
+                Text
+              </label>
+              <input
+                type="text"
+                className="border  p-2 rounded-xs border-gray-400 outline-0"
+              />
+            </div>
+            <div className="w-full flex justify-end">
+              <button className="cursor-pointer w-[50%] bg-black text-white py-1 px-2 rounded-sm text-center">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
-        <Button
-          text="via email form"
-          isEmail={true}
-          logo={<MdOutlineMessage />}
-        />
-        <form className="w-full px-5 flex flex-col gap-5 mt-5">
-          <div className="flex flex-col">
-            <label className="absolute bg-white -mt-2.5 ms-2.5" htmlFor="">
-              Name
-            </label>
-            <input
-              type="text"
-              className="border  p-2 rounded-xs border-gray-400 outline-0"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label className="absolute bg-white -mt-2.5 ms-2.5" htmlFor="">
-              E-Mail
-            </label>
-            <input
-              type="text"
-              className="border  p-2 rounded-xs border-gray-400 outline-0"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label className="absolute bg-white -mt-2.5 ms-2.5" htmlFor="">
-              Text
-            </label>
-            <input
-              type="text"
-              className="border  p-2 rounded-xs border-gray-400 outline-0"
-            />
-          </div>
-        </form>
+        <div className=" hidden md:block h-106.25 min-w-150">
+          <img className="h-full w-full" src={banner} alt="" />
+        </div>
       </div>
     </section>
   );
