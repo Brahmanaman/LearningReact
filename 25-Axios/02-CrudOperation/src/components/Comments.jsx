@@ -1,9 +1,11 @@
 import React, { use, useEffect, useState } from "react";
 import { getComments, deleteComment } from "../services/CommentServiceApi";
 import Form from "./Form";
+import { toast } from "react-toastify";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
+  const [updateComment, setUpdateComment] = useState({});
   useEffect(() => {
     fetchAllComments();
   }, []);
@@ -14,18 +16,34 @@ const Comments = () => {
   }
 
   async function removeComment(id) {
-    const res = await deleteComment(id);
-    const data = comments.filter((comment) => {
-      return comment.id != id;
-    });
-    setComments(data);
+    try {
+      const res = await deleteComment(id);
+      if (res.status === 200) {
+        toast.success("comment delete successfully!");
+        const data = comments.filter((comment) => {
+          return comment.id != id;
+        });
+        setComments(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function updateCommentHandler(comment) {
+    setUpdateComment(comment);
   }
 
   return (
     <>
       <div>
-        <Form comments={comments} setComments={setComments} />
-        <ul className="grid grid-cols-3 gap-4 mt-10">
+        <Form
+          comments={comments}
+          setComments={setComments}
+          updateComment={updateComment}
+          setUpdateComment={setUpdateComment}
+        />
+        <ul className="grid grid-cols-3 gap-4 mt-20">
           {comments.map((data) => {
             return (
               <li
@@ -44,7 +62,10 @@ const Comments = () => {
                 </p>
 
                 <div className="mt-5 w-50 flex items-center gap-10">
-                  <button className="bg-green-700 px-6 py-1 rounded-md font-semibold cursor-pointer hover:scale-110 transition">
+                  <button
+                    className="bg-green-700 px-6 py-1 rounded-md font-semibold cursor-pointer hover:scale-110 transition"
+                    onClick={() => updateCommentHandler(data)}
+                  >
                     Edit
                   </button>
                   <button
