@@ -1,13 +1,17 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/comments",
+  baseURL: "https://jsonplaceholder.typicode.com",
 });
 
 export const getComments = () => {
-  return api.get("");
+  return api.get("/comments");
+};
+
+export const addComments = (comment) => {
+  return api.post("/comments/", comment);
 };
 
 export const deleteComment = (id) => {
-  return api.delete(`/${id}`);
+  return api.delete(`/comments/${id}`);
 };
