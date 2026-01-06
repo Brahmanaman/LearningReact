@@ -2,6 +2,7 @@ import React from "react";
 import { fetchGIF, fetchPhotos, fetchVideos } from "./api/mediaApi";
 import SearchBar from "./components/SearchBar"
 import Tabs  from "./components/Tabs";
+import ResultGrid from "./components/ResultGrid";
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
       <div className="h-screen w-full bg-gray-950 text-white">
         <SearchBar/>
         <Tabs/>
+        <ResultGrid/>
       </div>
     </>
   );
