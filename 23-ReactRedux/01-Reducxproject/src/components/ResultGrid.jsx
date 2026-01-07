@@ -12,7 +12,7 @@ import ResultCard from "./ResultCard";
 
 const ResultGrid = () => {
   const { query, activeTab, results, loading, error } = useSelector(
-    (state) => state
+    (state) => state.search
   );
 
   const dispatch = useDispatch();

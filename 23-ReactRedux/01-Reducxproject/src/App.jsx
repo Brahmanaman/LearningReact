@@ -1,16 +1,17 @@
-import React from "react";
-import { fetchGIF, fetchPhotos, fetchVideos } from "./api/mediaApi";
-import SearchBar from "./components/SearchBar";
-import Tabs from "./components/Tabs";
-import ResultGrid from "./components/ResultGrid";
+import { Routes, Route } from "react-router";
+import Home from "./pages/Home";
+import CollectionPage from "./pages/CollectionPage";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
     <>
       <div className="min-h-screen w-full bg-gray-950 text-white">
-        <SearchBar />
-        <Tabs />
-        <ResultGrid />
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/collection" element={<CollectionPage />} />
+        </Routes>
       </div>
     </>
   );
