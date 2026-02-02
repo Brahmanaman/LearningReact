@@ -4,14 +4,19 @@ import { useQuery } from "@tanstack/react-query";
 
 const FetchQR = () => {
   // Queries
-  const posts = useQuery({ queryKey: ["posts"], queryFn: fetchPost });
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["posts"],
+    queryFn: fetchPost,
+  });
 
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error : {error.message || "something went wrong"}</p>;
   return (
     <>
       <div>
-        {posts.data?.map((post) => {
+        {data?.map((post, idx) => {
           return (
-            <div className="post">
+            <div key={idx} className="post">
               <p>{post.body}</p>
             </div>
           );
