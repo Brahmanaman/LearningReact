@@ -1,9 +1,25 @@
-import React from 'react'
+import React from "react";
+import { NavLink } from "react-router";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <header>
+      <div>
+        <NavLink to="/">TanStackQuery</NavLink>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/trad">FetchOld</NavLink>
+          </li>
+          <li>
+            <NavLink to="/rq">FetchRQ</NavLink>
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;

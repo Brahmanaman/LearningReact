@@ -11,8 +11,8 @@ const App = () => {
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="/fetch-old" element={<FetchOld />} />
-          <Route path="/fetch-qr" element={<FetchQR />} />
+          <Route path="/trad" element={<FetchOld />} />
+          <Route path="/rq" element={<FetchQR />} />
         </Route>
       </Routes>
     </>
