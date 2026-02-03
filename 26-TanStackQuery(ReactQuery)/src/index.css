@@ -64,11 +64,39 @@ ul>li {
   padding-top: 20px;
 }
 
+.post-container {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+
+}
+
 .post {
   padding: 10px 5px;
   background-color: rgb(51, 51, 51);
   margin-bottom: 10px;
   border-radius: 5px;
+}
+
+.dvbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: crimson;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
 }
 
 footer {
