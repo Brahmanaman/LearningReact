@@ -13,3 +13,7 @@ export const fetchIndividualData = async (id) => {
   const result = await api.get(`/posts/${id}`);
   return result.status == 200 ? result.data : [];
 };
+
+export const deletePost = (id) => {
+  return api.delete(`/posts/${id}`)
+}
