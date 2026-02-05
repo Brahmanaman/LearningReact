@@ -22,9 +22,10 @@ export const updatePost = (id) => {
   return api.patch(`/posts/${id}`, { body: "this is the updated body" })
 }
 
-export const fetchUsers = async (pageParam) => {
+export const fetchUsers = async ({ pageParam = 1 }) => {
   try {
     const resp = await axios.get(`https://api.github.com/users?per_page=10&page=${pageParam}`)
+    return resp.data;
   }
   catch (error) {
     console.log(error);
