@@ -17,3 +17,16 @@ export const fetchIndividualData = async (id) => {
 export const deletePost = (id) => {
   return api.delete(`/posts/${id}`)
 }
+
+export const updatePost = (id) => {
+  return api.patch(`/posts/${id}`, { body: "this is the updated body" })
+}
+
+export const fetchUsers = async (pageParam) => {
+  try {
+    const resp = await axios.get(`https://api.github.com/users?per_page=10&page=${pageParam}`)
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
