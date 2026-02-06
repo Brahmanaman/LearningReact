@@ -11,12 +11,12 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/trad" element={<FetchOld />} />
-          <Route path="/rq" element={<FetchQR />} />
-          <Route path="/rq/:id" element={<FetchIndividualData />}></Route>
-          <Route path="/infiniteScroll" element={<InfiniteScroll />}></Route>
+        <Route element={<MainLayout/>}>
+          <Route index element={<Home/>}/>
+          <Route path="/trad" element={<FetchOld/>}/>
+          <Route path="/rq" element={<FetchQR/>}/>
+          <Route path="/rq/:id" element={<FetchIndividualData/>}></Route>
+          <Route path="/infiniteScroll" element={<InfiniteScroll/>}></Route>
         </Route>
       </Routes>
     </>

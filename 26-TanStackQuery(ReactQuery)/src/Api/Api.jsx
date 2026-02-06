@@ -6,12 +6,12 @@ const api = axios.create({
 
 export const fetchPost = async (pageNumber) => {
   const result = await api.get(`/posts?_start=${pageNumber}&_limit=10`);
-  return result.status == 200 ? result.data : [];
+  return result.status === 200 ? result.data : [];
 };
 
 export const fetchIndividualData = async (id) => {
-  const result = await api.get(`/posts/${id}`);
-  return result.status == 200 ? result.data : [];
+  const result =  await api.get(`/posts/${id}`);
+  return result.status === 200 ? result.data : [];
 };
 
 export const deletePost = (id) => {
