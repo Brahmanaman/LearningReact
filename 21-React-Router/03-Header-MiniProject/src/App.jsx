@@ -16,13 +16,10 @@ const App = () => {
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/*" element={<PageNotFound />} /> this is normal page not found route */}
-          {
-            <Route
-              path="/*"
-              element={<Navigate to="/" />}
-            /> /* if someone enter wrong url it automatically redirect to home page */
-          }
+          {/* this is normal page not found route */}
+          <Route path="/*" element={<PageNotFound />} />
+          {/* if someone enter wrong url it automatically redirect to home page */}
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </>

@@ -49,9 +49,9 @@ const UserForm = ({ setToggle, setUsers, editUser, setEditUser, users }) => {
   }, [editUser, reset]);
   return (
     <>
-      <div className="flex items-center justify-center fixed inset-0 z-50">
-        <div className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm" />
-        <div className="flex flex-col items-center shadow p-5 bg-white rounded-md w-[30%] z-100">
+      <div className="fixed inset-0 z-80">
+        <div className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm z-60" />
+        <div className="flex flex-col items-center shadow p-5 rounded-md w-[30%] z-100">
           <h1 className="font-semibold mb-5 text-3xl">
             {editUser ? "Edit " : "Add "} User
           </h1>
