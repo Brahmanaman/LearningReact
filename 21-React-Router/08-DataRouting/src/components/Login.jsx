@@ -19,7 +19,7 @@ const Login = () => {
     let isUserExist = registerUser.find((x) => x.email === data.email && x.password === data.password);
     if (isUserExist) {
       setLoggedInUser(data);
-      localStorage.setItem("loggedInUser", data);
+      localStorage.setItem("loggedInUser", JSON.stringify(data));
       navigate("/dashboard");
     } else {
       alert("user does not exist");

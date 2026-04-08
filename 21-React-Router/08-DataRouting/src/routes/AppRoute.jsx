@@ -7,6 +7,7 @@ import MainLayout from "../layout/MainLayout";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import { getAllProducts } from "../api/ProductApi";
 
 const AppRoute = () => {
   let router = createBrowserRouter([
@@ -16,6 +17,11 @@ const AppRoute = () => {
       children: [
         {
           path: "",
+          loader: async () => {
+            let data = await getAllProducts();
+            return data;
+          },
+          hydrateFallbackElement: <h1>Loading Data......</h1>,
           Component: Home,
         },
         {
@@ -47,3 +53,4 @@ const AppRoute = () => {
 };
 
 export default AppRoute;
+
