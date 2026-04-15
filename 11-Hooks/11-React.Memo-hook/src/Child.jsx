@@ -1,21 +1,22 @@
-import React, { useRef } from "react";
+import React from "react";
 
-const Child = ({ props }) => {
-  const renderCount = useRef(0);
-
-  function incCount() {
-    setCount(count + 1);
-  }
+const Child = ({ user, count }) => {
+  console.log("child render");
 
   return (
     <div>
+      About-Count: {count}
       <h1>Child Component</h1>
-      <h3>Count: {renderCount.current++}</h3>
     </div>
   );
 };
 
+// export default Child;
+// export default React.memo(Child);
+
 export default React.memo(Child, function (prevProps, nextProps) {
-  if (prevProps.count == nextProps.count) return true;
+  if (prevProps.user.id === nextProps.user.id) {
+    return true;
+  }
   return false;
 });

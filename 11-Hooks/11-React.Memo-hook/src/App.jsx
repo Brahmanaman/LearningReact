@@ -5,7 +5,9 @@ import "./App.css";
 import Child from "./Child";
 
 function App() {
+  console.log("parent render");
   const [count, setCount] = useState(0);
+  const [user, setUser] = useState({ id: 1, name: "Aman" });
 
   return (
     <>
@@ -19,8 +21,10 @@ function App() {
         >
           Increment
         </button>
+        <br />
+        <button onClick={() => setUser({ name: "Mona" })}>Change User</button>
 
-        <Child props={[]}/>
+        <Child user={user} count={count} />
       </div>
     </>
   );
