@@ -1,8 +1,11 @@
 import { useDispatch } from "react-redux";
-import { addToCart } from "../features/CartSlice";
+import { addToCart, decrementQuantity, removeToCart } from "../features/CartSlice";
+import { useLocation } from "react-router";
 
-const ProductCard = ({ product }) => {
+const Card = ({ product, quantity }) => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
     <div className="max-w-sm rounded-2xl border bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
       {/* Image */}
@@ -39,15 +42,43 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Button */}
-        <button
-          onClick={() => dispatch(addToCart(product))}
-          className="w-full rounded-xl bg-black text-white py-2.5 font-medium hover:bg-gray-800 transition cursor-pointer"
-        >
-          Add to Cart
-        </button>
+        {pathname === "/cart" ? (
+          <div>
+            <p className="text-center mb-3 font-semibold">Quantity - 1</p>
+            <button
+              onClick={() => dispatch(removeToCart(product))}
+              className="w-full rounded-xl bg-black text-white py-2.5 font-medium hover:bg-gray-800 transition cursor-pointer"
+            >
+              Remove from Cart
+            </button>
+          </div>
+        ) : quantity ? (
+          <div className="flex items-center justify-center gap-2 ">
+            <p
+              onClick={() => dispatch(decrementQuantity(product))}
+              className="cursor-pointer bg-red-500 text-white font-bold px-2"
+            >
+              -
+            </p>
+            <p>{quantity}</p>
+            <p
+              onClick={() => dispatch(addToCart(product))}
+              className="cursor-pointer bg-green-500 text-white font-bold px-2"
+            >
+              +
+            </p>
+          </div>
+        ) : (
+          <button
+            onClick={() => dispatch(addToCart(product))}
+            className="w-full rounded-xl bg-black text-white py-2.5 font-medium hover:bg-gray-800 transition cursor-pointer"
+          >
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-export default ProductCard;
+export default Card;
