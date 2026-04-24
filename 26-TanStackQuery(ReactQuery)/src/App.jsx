@@ -6,17 +6,19 @@ import FetchQR from "./pages/FetchQR";
 import FetchOld from "./pages/FetchOld";
 import { FetchIndividualData } from "./ui/FetchIndividualData";
 import InfiniteScroll from "./pages/InfiniteScroll";
+import FetchInfiniteUser from "./pages/FetchInfiniteUser";
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route element={<MainLayout/>}>
-          <Route index element={<Home/>}/>
-          <Route path="/trad" element={<FetchOld/>}/>
-          <Route path="/rq" element={<FetchQR/>}/>
-          <Route path="/rq/:id" element={<FetchIndividualData/>}></Route>
-          <Route path="/infiniteScroll" element={<InfiniteScroll/>}></Route>
+        <Route element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/trad" element={<FetchOld />} />
+          <Route path="/rq" element={<FetchQR />} />
+          <Route path="/rq/:id" element={<FetchIndividualData />}></Route>
+          <Route path="/infiniteScroll" element={<InfiniteScroll />}></Route>
+          <Route path="/fetchUser" element={<FetchInfiniteUser />}></Route>
         </Route>
       </Routes>
     </>
